@@ -3,39 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Silicon Design</title>
+    <title>Min hemsida</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Header -->
-    <header>
-      <div class="logo">Min logotyp</div>
+    <div id="header"></div>
 
-      <nav>
-        <a href="#hem">Hem</a>
-        <a href="#om">Om</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </header>
-
-    <!-- Hero -->
     <main>
-      <section class="hero" id="hem">
-        <h1>Manage All Your Money in One App</h1>
-
-        <p>
-          We offer you a new generation of the mobile banking. Save, spend &
-          manage money in your pocket.
-        </p>
-
-        <!-- <a href="#kontakt" class="hero-button">Kontakta mig</a>-->
-      </section>
+      <div id="hero"></div>
     </main>
 
-    <!-- Footer -->
-    <footer id="kontakt">
-      <p>&copy; © 2025 Silicon. All rights reserved.</p>
-    </footer>
+    <div id="footer"></div>
+
+    <script>
+      async function loadComponent(id, file) {
+        const response = await fetch(file);
+        const html = await response.text();
+        document.getElementById(id).innerHTML = html;
+      }
+
+      loadComponent("header", "components/header.html");
+      loadComponent("hero", "components/hero.html");
+      loadComponent("footer", "components/footer.html");
+    </script>
   </body>
 </html>
