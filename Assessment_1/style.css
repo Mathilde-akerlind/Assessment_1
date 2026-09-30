@@ -12,17 +12,101 @@ body {
 }
 
 /* Header */
-header {
+.header {
+  width: 100%;
+  background-color: #fff;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1440px;
+  height: 80px;
+
+  margin: 0 auto;
+  padding: 0 60px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 8%;
-  background-color: #f5f5f5;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.logo img {
+  width: 120px;
+  display: block;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+}
+.sign-in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background-color: #6366f1;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 5px;
+
+  font-size: 14px;
+}
+
+.sign-in img {
+  width: 16px;
+  height: 16px;
+}
+
+.switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+
+  background-color: #9397ad;
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  left: 3px;
+  top: 3px;
+
+  background-color: white;
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
 }
 
 nav a {
@@ -241,5 +325,27 @@ footer {
 
   .features-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: 70px;
+  }
+
+  .dark-mode span {
+    display: none;
+  }
+
+  .sign-in span {
+    display: none;
+  }
+
+  .sign-in {
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 100px;
   }
 }
